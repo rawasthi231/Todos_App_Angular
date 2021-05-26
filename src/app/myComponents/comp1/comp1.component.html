@@ -1,0 +1,46 @@
+<h4>Todo List by Raghav Awasthi</h4>
+<!-- ngFor directive -->
+
+<app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
+<div *ngIf="this.todos.length===0; else elseBlock">No todos to display</div>
+<ng-template #elseBlock>
+    Your Todos
+    <div *ngFor="let todo of todos">
+        <app-todo-item [todo]="todo" (todoDelete)="deleteTodo($event)" (todoCheckBox)="toggleTodo($event)"></app-todo-item>
+    </div>
+</ng-template>
+
+
+<!-- <h4>{{heading}}</h4>
+<table class="table table-responsive table-bordered table-sm table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Task</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Raghav Awasthi</td>
+            <td>Learn Angular</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Raghav Awasthi</td>
+            <td>Make Angular Project</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Raghav Awasthi</td>
+            <td>Test Project</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Raghav Awasthi</td>
+            <td>Deploy Project</td>
+        </tr>
+    </tbody>
+</table>
+ -->
